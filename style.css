@@ -1,0 +1,146 @@
+/* #### CSS animation 01 */
+
+
+/* Faça um quadrado */
+body{
+    background-color: black;
+}
+.square{
+    display: flex;
+    width: 10rem;
+    height: 10rem;
+    
+    background: rgb(102,45,145);
+    background: linear-gradient( rgba(102,45,145,1) 0%, rgba(69,44,99,1) 60%, rgb(151, 151, 214) 95%);
+    
+    opacity: .8;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    color: rgb(255, 255, 255);
+
+    
+}
+
+/* 1 - Faça o quadrado andar do inicio para o fim da tela */
+
+
+/* .square{
+    animation-name: move;
+    animation-duration: 1.5s;
+
+} */
+
+@keyframes move {
+    /* to (de onde)*/
+    0%{
+    
+    }
+    /* from (até onde)*/
+    100%{
+        transform: translateX(calc(100vw - 100%))
+    }
+}
+
+/* 2- faça o quadrado ficar na posição final */
+
+/* .square{
+    animation-fill-mode:forwards;
+} */
+
+/*      -Resumo de aula    
+        - Inicio e fim 0% 100%,from to
+        - LINHA DO TEMPO
+        - '@keyframes' "nomedaanimação"{}
+
+
+        Propriedades necessárias (aplicação de item)
+
+        - 1. "animation-name"("nomedaanimação")
+
+        - 2. "animation-duration"
+        (duração da animação ex: 200ms, 2s,1s,0.5s)
+        
+        - 3. "animation-fill-mode"
+            (utilizada para fixação de conteúdo)
+            ex:
+
+            - animation-fill-mode:forwards
+
+            *(quando terminar a animação ele ira ficar no conteudo de propriedades de 100%(to,até))
+
+            
+        */
+
+
+/* 3-Reverta a animação */
+/* .square{
+    animation-direction: reverse;
+} */
+
+/* 4-Faça o quadrado ir e voltar ao ponto inicial  */
+/* .square{
+    animation-direction: alternate;
+    animation-iteration-count: 2;
+} */
+/* .square{
+    animation-iteration-count: infinite;
+} */
+
+/* 5- Faça a animação esperar 2s para iniciar */
+/* .square{ */
+    /* animation-delay: 2s; */
+/* } */
+
+/* 6- Teste outras funcionalidades de tempo*/
+/* .square{
+    animation-timing-function: 
+    cubic-bezier(0, 0.59, 0.87, 0.13);
+    
+    /* animation-timing-function: steps(20); */
+
+
+
+/*     -Resumo de aula 
+
+    - fazer animação começar depois de x tempo 
+
+    -Cubic-bezier(x1,y1,x2,y2)
+
+    - "animation-delay" aplicação de deley para inicio da animação
+    
+    - "animation-timing-function" aplicação de modificação na linha do tempo da animação , podendo ser utilizado em conjunto com "cubic-bezier(x1,y1,x2,y2)"
+    ou ( ease / ease-in / ease=out / ease-in-out / linear / step )
+    */
+
+
+
+/* 7- Quando passar o mouse em cima do quadrado, faça a animação parar */
+/* .square:hover{
+    animation-play-state: paused;
+
+} */
+
+/* /* 8- Faça o quadrado piscar sem parar */
+.square{
+    animation-name: move,blink;
+    animation-duration: 3s,300ms;
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    
+}
+.square:hover{
+    animation-play-state: paused;
+}
+@keyframes blink{
+    100%{
+        opacity: 0.4;
+    }
+    50%{
+        opacity: 1;
+        filter: hue-rotate(7deg) contrast(101%) saturate(160%);
+        
+    }
+}
